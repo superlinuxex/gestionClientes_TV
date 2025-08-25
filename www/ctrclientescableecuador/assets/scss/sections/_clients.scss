@@ -1,0 +1,43 @@
+/*------------------
+    Clients
+------------------*/
+.clients-area{
+    padding: 163px 0 100px 0;
+    background-color: #f7f9fd;
+    h2{
+        font-size: 50px;
+        font-weight: 700;
+        color: #43474d;
+        display: block;
+        margin-bottom: 52px;
+    }
+}
+.logo-carousel .owl-nav button[type=button] {
+    position: absolute;
+    left: -100px;
+    top: 10px;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    background-color: #ebeff5 ;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 50%;
+    color: #fff; 
+    @include transition($transition);
+}
+
+.logo-carousel .owl-nav button:focus {
+    outline: none;
+}
+
+.logo-carousel .owl-nav button:hover {
+    background-color: $base-color ;
+    color: $white; ;
+}
+
+.logo-carousel .owl-nav button.owl-next {
+    left: auto;
+    right: -100px;
+}

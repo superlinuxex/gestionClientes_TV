@@ -1,0 +1,85 @@
+@charset "utf-8";
+
+table, th, td {
+	border: 0px solid #B5B5B5;
+	border-collapse: collapse;
+	font-family: "Trebuchet MS", Arial, sans-serif;
+	color: #555;
+	font-size:14px;
+	font-weight:bold;
+}
+
+caption {
+	font-size: 150%;
+	font-weight: bold;
+	margin: 5px;
+}
+
+td, th {
+	padding: 2px;
+}
+
+table a:link {
+	color: #718ABE;
+	text-decoration: none;
+}
+
+table a:visited {
+	color: #718ABE;
+	text-decoration: none;
+}
+
+table a:hover {
+	color: #718ABE;
+	text-decoration: underline !important;
+}
+
+#id-form{
+}
+.frm_txt{
+	background: url(../imagenes/frm_txt.png) no-repeat;
+	border: none;
+	color: #393939;
+	height: 25px;
+ 
+	padding: 6px 6px 0 6px;
+	width: 186px;
+}
+
+.frm_txt_long{
+	background: url(../imagenes/frm_txt_long.png) no-repeat;
+	border: none;
+	color: #393939;
+	height: 25px;
+ 
+	padding: 6px 6px 0 6px;
+	width: 386px;
+}
+
+
+
+.frm_cmb{
+	*color: #393939;
+	height: 25px; 
+	padding: 6px 6px 0 6px;
+	width: 200px;
+}
+	
+.frm_btn {
+	background-image:url(../imagenes/mnu_header2.png);
+	text-align:center;
+	width:125px;
+	height:37px;
+	line-height:37px;		
+	border:none;
+	color:#FFF;
+	cursor:pointer;
+}
+
+.frm_cmb_fecha{
+	*color: #393939;
+	height: 25px; 
+	padding: 6px 6px 0 6px;
+	width: 60px;
+}
+

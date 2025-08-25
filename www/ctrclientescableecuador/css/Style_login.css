@@ -1,0 +1,81 @@
+.frame {
+	width: 100%;
+	max-width: 1260px;
+	min-width: 780px;
+	background: #FFF;
+	margin: 0 auto; 
+	overflow: hidden;
+}
+
+.margen_izq {
+	float: left;
+	width: 20%;
+	background: #FFF;
+	padding-bottom: 10px;
+}
+.contenido {
+	width: 60%;
+	height: 600px;
+	padding: 10px 30px 0;
+	float: left;
+	font: 12px Arial, Helvetica, sans-serif;
+	/*color:#ebebeb;
+	background:url(../imagenes/login.png) no-repeat center ;*/
+	background:url(../imagenes/bk2.png) no-repeat center ;
+}
+.margen_der {
+	float:right;
+	width: 10%;
+	background: #FFF;
+	padding: 10px 0;
+}
+
+.Textbox  {
+	width: 280px;
+	padding: 6px 4px 6px 3px;
+	border: 1px solid #0d2c52;
+	/*background-color:#1e4f8a;*/
+	font-size: 14px;
+	color: #000;
+}
+
+.Err_label  {
+	width: 405px;
+	padding: 6px 4px 6px 3px;
+	font-size: 16px;
+	color: red;
+	margin-left:20px;
+}
+
+.btn  {
+	width: 105px;
+	padding: 6px 4px 6px 3px;
+	margin-left:90px;
+	border: 1px solid #0d2c52;
+	/*background-color:#1e4f8a;*/
+	background:url(../imagenes/btn_bg.png) repeat-x;
+	font-size: 14px;
+	color: #000;
+}
+
+.btn2 {
+	display:block;
+	vertical-align:middle;
+	text-align:left;
+	text-decoration:none;
+	font:bold 12px Arial;
+	color:#FFF;
+	cursor:default;
+	/*padding:10px;*/
+	padding: 8px 20px 8px 20px;
+	margin-left:90px;
+	font-size: 14px;
+	background-color:#333;
+	background-image:url("../imagenes/mainbk.png");
+	background-repeat:
+	repeat;
+	background-position:0 200px;
+	border-width:0px;
+	border-style:none;
+	border-color:;
+}

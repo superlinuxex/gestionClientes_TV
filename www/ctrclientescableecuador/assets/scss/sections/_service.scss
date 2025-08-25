@@ -1,0 +1,24 @@
+/*-----------------------
+    Service Aera
+-----------------------*/
+.service-area{
+    padding: 95px 0 47px 0;
+    background-color: $bg-color; 
+    
+    .single-service-item{
+        text-align: center;
+        margin-bottom: 50px;
+        .content{
+            h4{
+                font-size: 26px;
+                font-weight: 700;
+                margin-top: 32px;
+                margin-bottom: 25px;
+                @include transition($transition);
+                &:hover{
+                    color: $base-color;
+                }
+            }
+        }
+    }
+}

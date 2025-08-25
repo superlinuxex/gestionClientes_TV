@@ -1,0 +1,130 @@
+/*----------------------
+    Why us Area
+-----------------------*/
+.offer-area{
+    padding: 92px 0 25px 0;
+    .section-title{
+        margin-bottom: 107px;
+    }
+    .single-offer-box{
+        text-align: center;
+        position: relative;
+        margin-bottom: 75px;
+        &:hover{
+            .content{
+                background-color: $base-color;
+                h5,p{
+                    color: $white;
+                }
+            }
+            .icon{
+                border-color: $white;
+            }
+        }
+        &.blue{
+            .icon {
+                background-color: #2481FF;
+            }
+            &:hover{
+                 .content {
+                     background-color: #2481FF;
+                 }
+            }
+        }
+        &.yellow {
+            .icon {
+                background-color: #F79101;
+            }
+            &:hover{
+                 .content {
+                     background-color: #F79101;
+                 }
+            }
+        }
+        &.red {
+            .icon {
+                background-color: #FF3133;
+            }
+            &:hover{
+                 .content {
+                     background-color: #FF3133;
+                 }
+            }
+        }
+        &.purple {
+            .icon {
+                background-color: #9C29EC;
+            }
+            &:hover{
+                 .content {
+                     background-color: #9C29EC;
+                 }
+            }
+        }
+        &.yellow-2 {
+            .icon {
+                background-color: #EAB000;
+            }
+            &:hover{
+                 .content {
+                     background-color: #EAB000;
+                 }
+            }
+        }
+        &.lite-blue {
+            .icon {
+                background-color: #14D6AF;
+            }
+            &:hover{
+                 .content {
+                     background-color: #14D6AF;
+                 }
+            }
+        }
+        &.lite-green {
+            .icon {
+                background-color: #7DBD31;
+            }
+            &:hover{
+                 .content {
+                     background-color: #7DBD31;
+                 }
+            }
+        }
+        .icon{
+            display: inline-block;
+            font-size: 26px;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            line-height: 70px;
+            background-color: $base-color;
+            text-align: center;
+            color: $white;
+            position: absolute;
+            left: 50%;
+            top: -35px;
+            @include transform(translateX(-50%));
+            border: 2px solid transparent;
+            @include transition($transition);
+        }
+        .content{
+            background-color: #f7f9fd;
+            padding: 45px 25px 22px 25px;
+            @include transition($transition);
+            h5{
+                font-size: 24px;
+                line-height: 34px;
+                font-weight: 700;
+                margin-bottom: 20px;
+                @include transition(.3s ease-in);
+            }
+            p{  
+                font-size: 14px;
+                line-height: 26px;
+                color: #61656b;
+                @include transition(.3s ease-in);
+            }
+        }
+    }
+}

@@ -1,0 +1,56 @@
+/*====================
+** Support Bar
+====================*/
+
+.support-bar {
+    padding: 30px 0 72px 0;
+    position: relative;
+    .logo {
+        margin-top: 7px;
+        display: block;
+    }
+}
+
+.support-right {
+    text-align: right;
+    .single-support-box {
+        padding-top: 5px;
+        display: inline-block;
+        position: relative;
+        margin-left: 30px;
+        .icon {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: auto;
+            height: auto;
+            font-size: 20px;
+            padding-top: 5px;
+            color: $base-color;
+        }
+        .content {
+            padding-left: 35px;
+            text-align: left;
+            a {
+                display: block;
+                font-size: 14px;
+                @include transition($transition);
+                &:hover {
+                    color: $secondary-color;
+                }
+            }
+        }
+    }
+}
+
+.support-btn {
+    text-align: right;
+    .boxed-btn {
+        width: 170px;
+        padding: 12px 30px;
+        text-align: center;
+        &:hover {
+            background-color: $secondary-color;
+        }
+    }
+}

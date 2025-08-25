@@ -1,0 +1,179 @@
+/*====================
+** Header Area
+====================*/
+
+.header-area {
+    position: relative;
+    z-index: 1;
+    padding: 120px 0 375px 0;
+    &.header-area-bg {
+        background-color: #ddd;
+        background-image: url(../img/bg/header-bg.jpg);
+        background-position: center;
+        background-size: cover;
+    }
+    &:after {
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: -1;
+        content: '';
+        width: 100%;
+        height: 100%;
+        background-color: #43474d;
+        opacity: .50;
+    }
+    .header-inner-content {
+        padding: 5px 0 0 0;
+        h1 {
+            font-size: 80px;
+            font-weight: 700;
+            color: $white;
+            margin-bottom: 40px;
+        }
+        p {
+            font-size: 20px;
+            color: $white;
+        }
+        .btn-wrapper {
+            .boxed-btn {
+                margin: 0 10px;
+                margin-top: 27px;
+                border-radius: 35px;
+                width: 180px;
+                text-align: center;
+                &.blank {
+                    border: 2px solid #ddd;
+                    background-color: transparent;
+                    &:hover {
+                        background-color: $base-color;
+                        border-color: $base-color;
+                    }
+                }
+            }
+        }
+    }
+    .header-bottom {
+        position: absolute;
+        left: 0;
+        bottom: -151px;
+        width: 100%;
+        .single-header-bottom-box {
+            position: relative;
+            z-index: 0;
+            padding: 90px 50px 70px 50px;
+            background-size: cover;
+            background-position: center;
+            .icon {
+                i {
+                    @include transition(2s ease-in);
+                }
+            }
+            &:hover {
+                .icon {
+                    i {
+                        @include transform(scale(1.3));
+                    }
+                }
+            }
+            &.blue {
+                &:after {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(18, 185, 185, .80);
+                    content: '';
+                    z-index: -1;
+                }
+                .content {
+                    @include transition($transition);
+                    .hover {
+                        p {
+                            color: #cafff9;
+                        }
+                    }
+                }
+            }
+            &.green {
+                position: absolute;
+                top: -100px;
+                &:after {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(63, 205, 19, .80);
+                    content: '';
+                    z-index: -1;
+                }
+                .content {
+                    .boxed-btn{
+                        margin-bottom: 30px;
+                    } 
+                    .hover {
+                        p {
+                            color: #d2ffc5;
+                        }
+                    }
+                }
+            }
+            &.red {
+                &:after {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(209, 88, 67, .80);
+                    content: '';
+                    z-index: -1;
+                }
+                .content {
+                    .hover {
+                        p {
+                            color: #fcc8bf;
+                        }
+                    }
+                }
+            }
+            &.header-box-bg-1 {
+                background-image: url(../img/header/01.jpg);
+                @include transition($transition);
+            }
+            &.header-box-bg-2 {
+                background-image: url(../img/header/02.jpg);
+                @include transition($transition);
+            }
+            &.header-box-bg-3 {
+                background-image: url(../img/header/03.jpg);
+                @include transition($transition);
+            }
+            .icon {
+                font-size: 50px;
+                color: $white;
+            }
+            .content {
+                h4 {
+                    display: block;
+                    font-size: 28px;
+                    margin-top: 13px;
+                    color: $white;
+                    margin-bottom: 28px;
+                }
+                .boxed-btn {
+                    margin-top: 28px;
+                    &.transparent {
+                        background-color: rgba(0, 0, 0, .20);
+                        border-radius: 25px;
+                        padding: 10px 25px;
+                        text-transform: capitalize;
+                        transition-delay: .5s;
+                    }
+                }
+            }
+        }
+    }
+}

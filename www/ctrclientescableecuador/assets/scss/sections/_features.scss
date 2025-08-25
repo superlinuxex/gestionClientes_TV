@@ -1,0 +1,37 @@
+/*-------------------
+    Features
+--------------------*/
+
+.features-area {
+    padding: 340px 0 100px 0;
+    .left-content {
+        h2 {
+            font-size: 50px;
+            line-height: 60px;
+            margin-bottom: 23px;
+            margin-top: 0;
+            span {
+                font-size: 40px;
+                font-weight: 300;
+                display: block;
+                line-height: 50px;
+            }
+        }
+        p {
+            color: #61656b;
+        }
+        ul {
+            margin-top: 20px;
+            li {
+                display: block;
+                font-size: 14px;
+                padding: 5px 0;
+                color: #43474d;
+                font-weight: 600;
+                i {
+                    color: $base-color;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,164 @@
+<?php
+	require_once("./logica/log_reportes.php");
+	$resultado=log_obtener_mov_dia($_GET['fecha'],$_GET['proy'],$_GET['bod']);
+	if( mysql_num_rows($resultado)==0){exit;}
+	$row=mysql_fetch_array($resultado);
+	$fecha=$row['fecha'];
+	$cod_bodega=$row['idbodega'];
+	mysql_data_seek($resultado, 0); 
+	$alturaLinea=110;
+	$alturaTabla=115;
+
+echo '
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<style type="text/css">
+.Tabla1 {
+	font-weight: normal;
+	color: black;
+	border-top: 1pt solid black;
+	background-color: white;
+}
+.FilaNI {
+	font-weight: normal;
+	color: black;
+	text-align: center;
+	border-left: 1pt solid black;
+	border-bottom: 1pt solid black;
+}
+.FilaN {
+	font-weight: normal;
+	color: black;
+	text-align: center;
+	border-bottom: 1pt solid black;
+	border-left: 1pt solid black;
+}
+.FilaNF {
+	font-weight: normal;
+	color: black;
+	text-align: right;
+	border-left: 1pt solid black;
+	border-right: 1pt solid black;
+	border-bottom: 1pt solid black;
+	padding-right:10px;
+}
+</style>
+<title>S I C I O - Reporte de Movimientos Diarios </title>
+</head>
+<body>
+	<div style="position:absolute;left:10%;top:15px;border:1px solid black;width:1100px;height:100%;">
+	<div style="position:absolute;left:10px;top:10px;width:200px;height:45px;background-image:url(\'imagenes/arco_log_rpt.png\');"></div>
+		
+	<div style="position:absolute;left:40px;top:55px;width:800px;height:37px;text-align:center;z-index:0;">
+		<span style="color:#000000;font-family:Arial;font-size:32px;"><strong>Reporte de Movimientos Diarios</strong></span>
+	</div>
+			
+	<div style="position:absolute;left:500px;top:10px;width:350px;height:22px;z-index:1;">
+		<span style="color:#000000;font-family:Arial;font-size:12px;"><strong>Saldos de existencias a la Fecha: </strong>'.$_GET['fecha'].'</span>
+	</div>
+ 
+	<div style="position:absolute;left:10px;top:85px;width:800px;height:37px;text-align:left;z-index:0;">
+		<span style="color:#000000;font-family:Arial;font-size:12px;"><strong>Bodega:&nbsp;&nbsp;&nbsp;'.$cod_bodega.' </strong></span>
+	</div>
+
+
+	<hr style="margin:0;padding:0;position:absolute;left:10px;top:'.$alturaLinea.'px;width:1000px;height:2px;z-index:0;
+	color: #000;background-color: #000;border-width: 0px;"/>
+
+		<table cellspacing="0" class="Tabla1" style="position:absolute;left:10px;top:'.$alturaTabla.'px;width:1000px;">
+			<tr>
+				<td class="FilaNI" style="height: 22px"><strong>Codigo Art.</strong></td>
+				<td class="FilaN" style="height: 22px"><strong>Nombre Art.</strong></td>
+				<td class="FilaN" style="height: 22px"><strong>U.Med.</strong></td>
+				<td class="FilaN" style="height: 22px"><strong>Saldo Anterior</strong></td>
+				<td class="FilaN" style="height: 22px"><strong>Entrada</strong></td>
+				<td class="FilaN" style="height: 22px"><strong>Salida</strong></td>
+				<td class="FilaNF" style="height: 22px;text-align: center;padding-right:0px;"><strong>Saldo</strong></td>
+			</tr>';	
+			while ( $fila = mysql_fetch_array($resultado))
+			{
+
+			 $umedi="";
+                         $xarti=$fila['idarticulo'];
+                         $sentencia="select unidadmed from articulos where idarticulos='".$xarti."'"; 
+                         $resultadob = mysql_query($sentencia);
+	                 if(isset($resultadob))
+    	                  {
+		           if(mysql_num_rows ( $resultadob )!=0)
+		           {
+  		            $filaxyz=mysql_fetch_array($resultadob);
+			    $umedi=$filaxyz['unidadmed'];
+                           }
+                          }
+
+
+           		 $yentran=$fila['entradas'];
+        		 $ysalen=$fila['salidas'];
+
+                         $xsaldo=0;
+                         $diferencia=0;
+			 $kentran=0;
+                         $xarti=$fila['idarticulo'];
+                         $sentencia="select sum(entradas) AS xentran from movimientos where idbodega='".$cod_bodega."' and idarticulo='".$xarti."' and fecha<str_to_date('$fecha','%Y-%m-%d')"; 
+                         $resultado2 = mysql_query($sentencia);
+	                 if(isset($resultado2))
+    	                  {
+		           if(mysql_num_rows ( $resultado2 )!=0)
+		           {
+  		            $filax=mysql_fetch_array($resultado2);
+			    $kentran=$filax['xentran'];
+                           }
+                          }
+                         
+			 $ksalen=0;
+			 $xarti=$fila['idarticulo'];
+                         $sentencia="select sum(salidas) AS xsalen  from movimientos where idbodega='".$cod_bodega."' and idarticulo='".$xarti."' and fecha<str_to_date('$fecha','%Y-%m-%d')"; 
+                         $resultado3 = mysql_query($sentencia);
+	                 if(isset($resultado3))
+    	                  {
+		           if(mysql_num_rows ( $resultado3 )!=0)
+		           {
+  		            $filax=mysql_fetch_array($resultado3);
+			    $ksalen=$filax['xsalen'];
+                           }
+                          }
+                          $diferencia=$kentran-$ksalen;
+                          $xsaldo=($diferencia+$yentran)-$ysalen;
+                          $fila['existencia_origen']=$diferencia;
+                          $fila['saldo']=$xsaldo;
+                       
+			  $variable1=$fila['existencia_origen'];
+                          $variablex1=number_format($variable1, 2, ".", ",");
+
+			  $variable2=$fila['entradas'];
+                          $variablex2=number_format($variable2, 2, ".", ",");
+                       
+			  $variable3=$fila['salidas'];
+                          $variablex3=number_format($variable3, 2, ".", ",");
+
+			  $variable4=$xsaldo;
+                          $variablex4=number_format($variable4, 2, ".", ",");
+
+
+				echo '
+					<tr>
+						<td class="FilaNI" style="height: 22px; text-align: left">'.$fila['idarticulo'].'</td>
+						<td class="FilaN" style="height: 22px; text-align: left">'.$fila['nombrear'].'</td>
+						<td class="FilaN" style="height: 22px">'.$umedi.'</td>
+						<td class="FilaN" style="height: 22px; text-align: right">'.$variablex1.'</td>
+						<td class="FilaN" style="height: 22px; text-align: right">'.$variablex2.'</td>
+						<td class="FilaN" style="height: 22px; text-align: right">'.$variablex3.'</td>
+						<td class="FilaNF" style="height: 22px; text-align: right">'.$variablex4.'</td>
+					</tr>';			
+			}
+			 echo'
+		</table>
+	</div>
+</body>
+</html>';
+?>

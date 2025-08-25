@@ -1,0 +1,76 @@
+/*------------------------
+	Css Indexing
+--------------------------
+--------------------------
+** @typography
+--------------------------
+** Global css
+--------------------------
+** Preloader
+--------------------------
+** Normalize
+--------------------------
+** Navbar Area
+--------------------------
+** Support Bar
+--------------------------
+** Header Area
+--------------------------
+**  Features
+--------------------------
+** Service Aera
+--------------------------
+**  Why us Area
+--------------------------
+** Intro Video
+--------------------------
+**  Our Plan
+--------------------------
+** Clients
+--------------------------
+** Footer Area
+--------------------------
+
+*/
+
+//== Template Main Color
+$base-color: #67bc4d;
+$secondary-color: #43474d;
+//== section background color
+$bg-color: #f7f9fd;
+
+//== basic color
+$white: #fff;
+$black :#10111b;
+//== heading color
+$heading-color: #43474d;
+$descr-color: #61656b;
+
+/*----------------------
+ @Typography
+-----------------------*/
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800|Quicksand:300,400,500,700');
+
+$body-font:'Open Sans',sans-serif;
+$heading-font:'Quicksand',sans-serif;
+$base-font-size:          16px !default;
+$font-size-h1:            80px !default; 
+$font-size-h2:            50px !default; 
+$font-size-h3:            40px !default;  
+$font-size-h4:            22px !default;   
+//** Unit-less `line-height` for use in components like buttons.
+$line-height:        1.6 !default; // 24/15
+
+
+
+//== border-radius
+$border-radius-base:        5px !default;
+$border-radius-large:       25px !default;
+$border-radius-small:       3px !default;
+$border-radius-circle:      50% !default;
+
+
+//==transition
+$transition: all .5s ease-in;
+$transition-long: all .9s ease-in;
+
